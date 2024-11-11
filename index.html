@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LTM: Lightweight Textured Mesh Extraction and Refinement of Large Unbounded Scenes for Efficient Storage and Real-time Rendering 
+        ">
+  <meta name="keywords" content="NeRF, Reconstruction, Texturing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LTM: Lightweight Textured Mesh Extraction and Refinement of Large Unbounded Scenes for Efficient Storage and Real-time Rendering 
+  </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <link rel="stylesheet" href="./definitive-image-comparison-slider-master/src/dics.css">
+  <script src="./definitive-image-comparison-slider-master/src/dics.js"></script>
+	<script>
+    document.addEventListener('DOMContentLoaded', domReady);
+    function domReady() {
+      var b = document.querySelectorAll('.b-dics');
+      b.forEach(element => 
+        new Dics({
+          container: element,
+          textPosition: 'top'
+        })
+      );
+    }
+	</script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://jh-choi.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://jingsenzhu.github.io/invrend">
+            Learning-based Inverse Rendering
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size:36px;">
+            <span style="color:crimson">LTM</span>: <span style="color:crimson">L</span>ightweight <span style="color:crimson">T</span>extured <span style="color:crimson">M</span>esh 
+            Extraction and Refinement of Large Unbounded Scenes for Efficient Storage and Real-time Rendering  
+            <!-- <span style="color:crimson">I</span><span style="color:darkgoldenrod"><sup>2</sup></span>-<span style="color:darkblue">SDF</span>:  -->
+            <!-- <span style="color:crimson">I</span>ntrinsic <span style="color:darkgoldenrod">I</span>ndoor Scene Reconstruction and Editing via Raytracing in Neural <span style="color:darkblue">SDF</span>s -->
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-size: 22px;">
+              <a href="https://jh-choi.github.io/">Jaehoon Choi</a><sup>1</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Rajvi Shah<sup>2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Qinbo Li<sup>2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Yipeng Wang<sup>2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Ayush Saraf<sup>2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Changil Kim<sup>2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Jia-Bin Huang<sup>1,2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Dinesh Manocha<sup>1</sup>,
+            <span class="author-block" style="font-size: 22px;">
+              Suhib Alsisan<sup>2</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              Johannes Kopf<sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-size: 18px;"><sup>1</sup>University of Maryland</a></span>
+            <span class="author-block" style="font-size: 18px;"><sup>2</sup>Meta</span>
+          </div>
+          <!-- <div class="is-size-5 publication-authors">
+            <strong>CVPR 2023</strong>
+          </div> -->
+          <h2 style="font-size:24px;color:#6e6e6e">CVPR 2024</h2>
+
+          <div class="column has-text-centered">
+            <div class="link-block">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Choi_LTM_Lightweight_Textured_Mesh_Extraction_and_Refinement_of_Large_Unbounded_CVPR_2024_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2024/supplemental/Choi_LTM_Lightweight_Textured_CVPR_2024_supplemental.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/jingsenzhu/i2-sdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (Soon)</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+	
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content">
+            <div class="b-dics" style="width: 400px;">
+              <img src="static/images/teaser/0c_mono.png" alt="MonoSDF" />
+              <img src="static/images/teaser/0c_ours.png" alt="Ours" />
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <div class="b-dics" style="width: 400px;">
+              <img src="static/images/teaser/0009_orig_filter.png" alt="Input" />
+              <img src="static/images/teaser/0009_relight_filter.png" alt="Relight" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered" style="font-size:16px;">
+        TL;DR: I<sup>2</sup>-SDF resolves challenges in reconstructing small objects inside an indoor scene by a novel bubble loss (Left), and leverages intrinsic decomposition and raytracing to enable photorealistic scene editing and relighting (Right).
+      </h2>
+    </div>
+  </div>
+</section> -->
+<section class="section">
+  <!-- Abstract. -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Advancements in neural signed distance fields (SDFs) have enabled modeling 3D surface geometry from a set of 2D images of real-world scenes. Baking neural SDFs can extract explicit mesh with appearance baked into texture maps as neural features. The baked meshes still have a large memory footprint and require a powerful GPU for real-time rendering. Neural optimization of such large meshes with differentiable rendering pose significant challenges. We propose a method to produce optimized meshes for large unbounded scenes with low triangle budget and high fidelity of geometry and appearance. We achieve this by combining advancements in baking neural SDFs with classical mesh simplification techniques and proposing a joint appearance-geometry refinement step. The visual quality is comparable to or better than state-of-the-art neural meshing and baking methods with high geometric accuracy despite significant reduction in triangle count, making the produced meshes efficient for storage, transmission, and rendering on mobile hardware. We validate the effectiveness of the proposed method on large unbounded scenes from mip-NeRF 360, Tanks & Temples, and Deep Blending datasets, achieving at-par rendering quality with 73× reduced triangles and 11× reduction in memory footprint.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered" id="video">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Video</h2>
+        <!-- <iframe src="https://www.youtube.com/embed/iFov5NBjjCo" frameborder="0" allowfullscreen></iframe> -->
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/iFov5NBjjCo" frameborder="0" allowfullscreen></iframe>
+        <!-- <iframe width="100%" height="315" src="https://www.youtube.com/embed/iFov5NBjjCo" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe> -->
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+  <!-- Abstract. -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <img src="./static/images/figure3_final.jpg" alt="Nerfies" height="100%">
+        <!-- <h2 class="subtitle has-text-centered"> -->
+        <div class="content has-text-justified">
+          <!-- <span class="TMO">LTM</span> aims to achieve a trifecta of precise geometry, efficient disk storage, and realistic rendering. -->
+          <!-- We start training both the appearance fcolor and geometry fsdf representations for a large-scale
+          scene using volumetric rendering (shown in orange). Then, our method extracts the mesh from fsdf and significantly
+          simplifies its structure, resulting in the lightweight mesh M (shown in blue). Finally, we jointly train vertex deformation Δx and
+          fcolor computed from appearance modeling. -->
+          <p>
+            We start training both the appearance f<sub>color</sub> and geometry f<sub>sdf</sub> representations for a large-scale
+            scene using volumetric rendering (shown in orange). Then, our method extracts the mesh from f<sub>sdf</sub> and significantly
+            simplifies its structure, resulting in the lightweight mesh M (shown in blue). Finally, we jointly train vertex deformation Δx and
+            f<sub>color</sub> computed from appearance modeling.
+          </p>
+        <!-- </h2> -->
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <h2 class="title is-3">Interactive  Rendering Demo in VR</h2>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/figure3_final.jpg" alt="Nerfies" height="100%">
+      <h2 class="subtitle has-text-centered">
+        <span class="TMO">TMO</span> reconstructs the high-quality geometric mesh with a visually realistic texture.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<section class="section" id="synthesis">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="title">Real-time Online Interactive Viewer Demo</h2>
+          <tyle="margin-top:0px">
+          <table style="table-layout: fixed;">
+            <tbody>
+                <tr>
+                  <td width="33%" style="padding-right: 10px;"> 
+                    <a href="renderer.html?scene=garden" style="text-decoration: none"> 
+                      <img src="static/images/garden.jpg" alt="garden" class="img-responsive" width="100%"/> 
+                      <b>Garden</b> 
+                    </a> 
+                  </td>
+                  <td width="33%" style="padding-right: 10px;"> 
+                    <a href="renderer.html?scene=bicycle" style="text-decoration: none"> 
+                      <img src="static/images/bicycle.jpg" alt="bicycle" class="img-responsive" width="100%"/> 
+                      <b>Bicycle</b> 
+                    </a> 
+                  </td>
+                  <td width="33%" style="padding-right: 10px;"> <a href="renderer.html?scene=stump" style="text-decoration: none"> 
+                    <img src="static/images/stump.jpg" alt="stump" class="img-responsive" width="100%"/> 
+                    <b>Stump</b> 
+                  </a>
+                 </td>  
+                </tr>
+            </tbody>
+          </table>
+          <table style="table-layout: fixed; margin-top: 20px;">
+            <tbody>
+              <tr>
+                <td width="25%" style="padding-right: 10px;"> 
+                  <a href="renderer.html?scene=bonsai" style="text-decoration: none"> 
+                    <img src="static/images/bonsai_orig.png" alt="bonsai" class="img-responsive" width="100%"/> 
+                    <b>Bonsai</b> 
+                  </a> 
+                </td>
+                <td width="25%" style="padding-right: 10px;"> 
+                  <a href="renderer.html?scene=kitchen" style="text-decoration: none"> 
+                    <img src="static/images/kitchen_orig.png" alt="kitchen" class="img-responsive" width="100%"/> 
+                    <b>Kitchen</b> 
+                  </a> 
+                </td>
+                <td width="25%" style="padding-right: 10px;"> 
+                  <a href="renderer.html?scene=room" style="text-decoration: none"> 
+                    <img src="static/images/room_orig.png" alt="room" class="img-responsive" width="100%"/> 
+                    <b>Room</b> 
+                  </a> 
+                </td>  
+                <td width="25%" style="padding-right: 10px;"> 
+                  <a href="renderer.html?scene=counter" style="text-decoration: none"> 
+                    <img src="static/images/counter_orig.png" alt="counter" class="img-responsive" width="100%"/>
+                    <b>Counter</b> 
+                  </a> 
+                </td>  
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Interactive  Rendering Demo in VR</h2>
+      <video controls  width="720" height="480">
+        <source src="static/images/Example_video.mp4" type="video/mp4">
+        <!-- Your browser does not support the video tag. -->
+      </video>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Related Links</h2>
+        <div class="content has-text-justified">
+          The renderer is largely based on Jiaxiang Tang's great work <a href="https://github.com/ashawkey/nerf2mesh">NeRF2Mesh</a>.
+          We also borrow  <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for their excellent website templates.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+  <!-- <div class="container is-max-desktop has-text-centered"> -->
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{choi2024ltm,
+    title = {LTM: Lightweight Textured Mesh Extraction and Refinement of Large Unbounded Scenes for Efficient Storage and Real-time Rendering},
+    author = {Jaehoon Choi and Rajvi Shah and Qinbo Li and Yipeng Wang and Ayush Saraf and Changil Kim and Jia-Bin Huang Dinesh Manocha and Suhib Alsisan and Johannes Kopf},
+    booktitle = {CVPR},
+    year = {2024}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://jh-choi.github.io/" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Thanks to <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for their excellent website templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  bulmaCarousel.attach('#geo-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true
+  });
+  bulmaCarousel.attach('#novel-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true
+  });
+  bulmaCarousel.attach('#edit-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true
+  });
+</script>
+
+</body>
+</html>
