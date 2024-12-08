@@ -17,8 +17,8 @@
 
     let meshAttributes = {
       "toy": {
-        src: "https://anonymous000edm.github.io/assets/ply/ex.ply",
-        poster: "https://anonymous000edm.github.io/assets/ply/ex.png",
+        src: "https://anonymous000edm.github.io/static/ply/ex.ply",
+        poster: "https://anonymous000edm.github.io/static/ply/ex.png",
         "environment-image": "https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr",
         caption: "example",
         shortCaption: "example",
