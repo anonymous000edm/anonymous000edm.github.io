@@ -26,7 +26,10 @@
     };
 
     let meshRows = [
-      ['toy'],
+      ['toy', 'toy'],
+      ['toy', 'toy'],
+      ['toy', 'toy'],
+      ['toy', 'toy'],
     ];
 
     // let meshAttributes = {
