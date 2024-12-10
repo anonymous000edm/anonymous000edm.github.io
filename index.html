@@ -276,7 +276,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          We introduce the first learning-based dense matching algorithm, termed Equirect- angular Projection-Oriented Dense Kernelized Feature Matching (EDM), specifi- cally designed for omnidirectional images. Equirectangular projection (ERP) im- ages, with their large fields of view, are particularly suited for dense matching techniques that aim to establish comprehensive correspondences across images. However, ERP images are subject to significant distortions, which we address by leveraging the spherical camera model and geodesic flow refinement in the dense matching method. To further mitigate these distortions, we propose spherical po- sitional embeddings based on 3D Cartesian coordinates of the feature grid. Addi- tionally, our method incorporates bidirectional transformations between spherical and Cartesian coordinate systems during refinement, utilizing a unit sphere to im- prove matching performance. We demonstrate that our proposed method achieves notable performance enhancements, with improvements of +26.72 and +42.62 in AUC@5° on the Matterport3D and Stanford2D3D datasets, respectively.
+          We introduce the first learning-based dense matching algorithm, termed Equirectangular Projection-Oriented Dense Kernelized Feature Matching (EDM), specifically designed for omnidirectional images. Equirectangular projection (ERP) images, with their large fields of view, are particularly suited for dense matching techniques that aim to establish comprehensive correspondences across images. However, ERP images are subject to significant distortions, which we address by leveraging the spherical camera model and geodesic flow refinement in the dense matching method. To further mitigate these distortions, we propose spherical positional embeddings based on 3D Cartesian coordinates of the feature grid. Additionally, our method incorporates bidirectional transformations between spherical and Cartesian coordinate systems during refinement, utilizing a unit sphere to improve matching performance. We demonstrate that our proposed method achieves notable performance enhancements, with improvements of +26.72 and +42.62 in AUC@5° on the Matterport3D and Stanford2D3D datasets, respectively.
           </p>
         </div>
       </div>
@@ -299,12 +299,53 @@
   </div>
 </section>   -->
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/method.png" alt="Nerfies" height="100%">
+      <div class="content has-text-justified">
+        Our model architecture is inspired by designs of SOTA dense matching models, but re-designed for the distortion-awareness for omnidirectional images.
+        REFER CONTIRBUTIONS!!!
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
 
       <div class="center-image">
-        <h2 class="title is-3">More Results</h2>
+        <h2 class="title is-3">Downstream Tasks : Spherical Two View Geometry</h2>
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/4d072b94c7224065a4f71016f7707b08/embed"> </iframe> </div>
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation4" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/65a2d030b773452aa905ea0bf4418ba4/embed"> </iframe> </div>
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation5" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/4a9bd1257de04d8f959abe62a0caa93f/embed"> </iframe> </div>
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation3" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/d2f1fd48742f471b95e5a29864c0bc3a/embed"> </iframe> </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="center-image">
+        <h2 class="title is-3">Downstream Tasks : Spherical Structure from Motion</h2>
       </div>
 
       <div id="results-carousel" class="carousel results-carousel">
@@ -323,7 +364,6 @@
     </div>
   </div>
 </section>
-
 
 
 <footer class="footer">
