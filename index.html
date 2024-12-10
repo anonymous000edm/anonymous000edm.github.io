@@ -41,7 +41,26 @@
     }
 	</script>
   <script src="./static/js/index.js"></script>
-  <script src="./static/js/ply.js"></script>
+
+
+  <style>
+    .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* This will make it take the full height of the viewport */
+    }
+
+    .sketchfab-embed-wrapper {
+        width: 80%; /* Adjust this value to change the size */
+        height: 80%; /* Adjust this value to change the size */
+    }
+    .center-image {
+    display: flex;
+    justify-content: center;
+    }
+</style>
+
 </head>
 <body>
 
@@ -263,22 +282,28 @@
   </div>
 </section>   -->
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">PLY</h2>
-          <div class="container meshes" id="meshContainer" style="max-width: 768px;">
-            <div class="row">
-              <div class="col-md-12">
-                <p>Our generated NeRF models can be exported to meshes using the marching cubes algorithm for easy integration into 3D renderers or modeling software.</p>
-              </div>
-            </div>
-          </div>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="center-image">
+        <h2 class="title is-3">More Results</h2>
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <!-- <div class="sketchfab-embed-wrapper"> <iframe title="2t7WUuJeko7_geometric" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/7ebfdd62ec6a4718a1ee6efeb42ad997/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/2t7wuujeko7-geometric-7ebfdd62ec6a4718a1ee6efeb42ad997?utm_medium=embed&utm_campaign=share-popup&utm_content=7ebfdd62ec6a4718a1ee6efeb42ad997" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 2t7WUuJeko7_geometric </a> by <a href="https://sketchfab.com/anonymous000edm?utm_medium=embed&utm_campaign=share-popup&utm_content=7ebfdd62ec6a4718a1ee6efeb42ad997" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> anonymous000edm </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=7ebfdd62ec6a4718a1ee6efeb42ad997" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div> -->
+          <div class="sketchfab-embed-wrapper"> <iframe title="2t7WUuJeko7_geometric" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/7ebfdd62ec6a4718a1ee6efeb42ad997/embed?autostart=1"> </iframe> </div>        
+
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="2t7WUuJeko7_geometric" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/7ebfdd62ec6a4718a1ee6efeb42ad997/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/2t7wuujeko7-geometric-7ebfdd62ec6a4718a1ee6efeb42ad997?utm_medium=embed&utm_campaign=share-popup&utm_content=7ebfdd62ec6a4718a1ee6efeb42ad997" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 2t7WUuJeko7_geometric </a> by <a href="https://sketchfab.com/anonymous000edm?utm_medium=embed&utm_campaign=share-popup&utm_content=7ebfdd62ec6a4718a1ee6efeb42ad997" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> anonymous000edm </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=7ebfdd62ec6a4718a1ee6efeb42ad997" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 
 <footer class="footer">
