@@ -305,11 +305,37 @@
       <img src="./static/images/method.png" alt="Nerfies" height="100%">
       <div class="content has-text-justified">
         Our model architecture is inspired by designs of SOTA dense matching models, but re-designed for the distortion-awareness for omnidirectional images.
-        REFER CONTIRBUTIONS!!!
+        First, we propose a Spherical Spatial Alignment Module that utilizes Gaussian Process regression and spherical positional embeddings to establish 3D correspondences between omnidirectional images.
+        Second, we use Geodesic Flow Refinement by enabling conversions between coordinates to refine the displacement on the surface of the sphere.
+        Moreover, with azimuth rotation for data augmentation, we achieve state-of-the-art performance in dense matching and relative pose estimation between two omnidirectional images.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<section class="section">
+  <!-- Results. -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <img src="./static/images/warp1.png" alt="Nerfies" height="100%">
+        </p>
+        <!-- balank line-->
+        <br>
+        <img src="./static/images/warp2.png" alt="Nerfies" height="100%">
+        <div class="content has-text-justified">
+          Qualitative results. Warp refers to results obtained by multiplying the warped image with the predicted certainty map, demonstrating that our method yields accurate dense matches.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
 
 <section class="hero is-light is-small">
   <div class="hero-body">
